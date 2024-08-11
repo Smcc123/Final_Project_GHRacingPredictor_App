@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greyhound Race Predictor</title>
+</head>
+<body>
+    <h1>Greyhound Race Predictor</h1>
+    <h3>Please fill in the below details in order to make a prediction</h3>
+    <h5>This will need to be completed for each of the 6 dogs - please leave no blank entries</h5>
+    <form action="/predict" method="post">
+        {% for i in range(1, 7) %}
+            <h2>Greyhound {{ i }}</h2>
+            
+            <label for="Trap{{ i }}">Trap:</label>
+            <input type="number" id="Trap{{ i }}" name="Trap{{ i }}" required><br><br>
+
+            <label for="BSP{{ i }}">BSP:</label>
+            <input type="number" step="0.01" id="BSP{{ i }}" name="BSP{{ i }}" required><br><br>
+
+            <label for="Odds{{ i }}">Odds:</label>
+            <input type="number" step="0.01" id="Odds{{ i }}" name="Odds{{ i }}" required><br><br>
+
+            <label for="Public_Estimate{{ i }}">Public Estimate:</label>
+            <input type="number" step="0.01" id="Public_Estimate{{ i }}" name="Public_Estimate{{ i }}" required><br><br>
+
+            <label for="Finish_All{{ i }}">Finish All:</label>
+            <input type="number" id="Finish_All{{ i }}" name="Finish_All{{ i }}" required><br><br>
+
+            <label for="Races_All{{ i }}">Races All:</label>
+            <input type="number" id="Races_All{{ i }}" name="Races_All{{ i }}" required><br><br>
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
